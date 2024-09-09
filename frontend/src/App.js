@@ -90,8 +90,8 @@ function App() {
           <MainNav />
           <Routes>
             <Route path="/" element={<Dashboard />}></Route>
-            <Route path="/login" element={<LoginUser />}></Route>
-            <Route path="/signup" element={<NewUser />}></Route>
+            <Route path="/signup" element={<LoginUser />}></Route>
+            <Route path="/login" element={<NewUser />}></Route>
             <Route path="/leave-page" element={<AllLeaves />}></Route>
             <Route path="/ask-for-leave/:uid" element={<LeavePage />}></Route>
             <Route path="/edit/:uid" element={<EditEmployee />} />

@@ -9,7 +9,7 @@ import Container from "react-bootstrap/Container";
 
 import MainHeader from "./MainHeader";
 import getIcon from "../utils/getIcon";
-
+import logo from "../images/logo-blue.png"
 const NavLinks = (item) => {
   return (
     <Nav.Link
@@ -39,49 +39,51 @@ function MainNav() {
 
   return (
     <MainHeader>
-      <Navbar expand="lg" bg="dark" data-bs-theme="dark" className="shadow-lg">
+      <Navbar expand="lg" bg="" data-bs-theme="dark" className="shadow-lg">
         <Container>
+          <img src={logo} alt="" style={{width: '10rem'}}/>
           <Navbar.Brand>
+
             <Link
-              to={`${authUser.isLoggedIn ? "/" : "/login"}`}
-              className="text-decoration-none fw-bold text-white"
+                to={`${authUser.isLoggedIn ? "/" : "/login"}`}
+                className="text-decoration-none fw-bold text-danger"
             >
               Employee Management System
             </Link>
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Toggle aria-controls="basic-navbar-nav"/>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               {authUser.isLoggedIn && (
-                <>
-                  <NavLinks
-                    link="/leave-page"
-                    navIcon="leave"
-                    navText="Leave Stats"
-                  />
-                  <NavLinks
-                    link={`/profile/${authUser.userId}`}
-                    navIcon="profile"
-                    navText="Profile"
-                  />
-                  <NavLinks
-                    link="/"
-                    navIcon="dashboard"
-                    navText="Dashboard"
-                  />
-                </>
+                  <>
+                    <NavLinks
+                        link="/leave-page"
+                        navIcon="leave"
+                        navText="Leave Stats"
+                    />
+                    <NavLinks
+                        link={`/profile/${authUser.userId}`}
+                        navIcon="profile"
+                        navText="Profile"
+                    />
+                    <NavLinks
+                        link="/"
+                        navIcon="dashboard"
+                        navText="Dashboard"
+                    />
+                  </>
               )}
             </Nav>
             {authUser.token && authUser.currentUser && (
-              <NavDropdown
-                title={authUser.currentUser.name}
-                className="text-white"
-                id="collapsible-nav-dropdown"
-              >
-                <NavDropdown.Item onClick={authUser.logout}>
-                  Log Out
-                </NavDropdown.Item>
-              </NavDropdown>
+                <NavDropdown
+                    title={authUser.currentUser.name}
+                    className="text-white"
+                    id="collapsible-nav-dropdown"
+                >
+                  <NavDropdown.Item onClick={authUser.logout}>
+                    Log Out
+                  </NavDropdown.Item>
+                </NavDropdown>
             )}
           </Navbar.Collapse>
         </Container>

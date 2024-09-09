@@ -41,8 +41,6 @@ const newUser = async (req, res, next) => {
     joiningDate,
     position,
     name,
-    aadhar,
-    panNo,
     isSuperUser,
     address,
     dateOfBirth,
@@ -65,8 +63,6 @@ const newUser = async (req, res, next) => {
 
   const { encPass, encAadhar, encPan } = encryptData(
     password,
-    aadhar,
-    panNo,
     secretKey
   );
 
@@ -77,8 +73,6 @@ const newUser = async (req, res, next) => {
       joiningDate,
       position,
       name,
-      aadhar: encAadhar,
-      panNo: encPan,
       isSuperUser,
       address,
       dateOfBirth,
@@ -182,8 +176,6 @@ const editEmployee = async (req, res, next) => {
   user.position = position;
   user.phone = phone;
   user.address = address;
-  user.aadhar = aadhar;
-  user.panNo = panNo;
   user.image = req?.file?.path || "uploads\\images\\user-default.jpg";
 
   try {

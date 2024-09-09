@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import userContext from "../../context/userContext";
 import { useForm } from "react-hook-form";
 import { Form, Button } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import { message } from "antd";
 import axios from "axios";
 
@@ -91,6 +91,15 @@ const LoginUser = () => {
             className="my-2 custom-button w-100 p-2 fw-bold"
           >
             Submit
+          </Button>
+          <Button
+              variant=""
+              type=""
+              className="my-2 custom-button w-100 p-2 fw-bold"
+          >
+             <Link to='/signup'>
+               Go to Sign up
+             </Link>
           </Button>
         </Form>
       </div>
